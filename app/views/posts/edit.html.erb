@@ -1,0 +1,36 @@
+<%= form_with(model: @post, local: true, class: "p-4") do |form| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= pluralize(@post.errors.count, "error") %>があります:</h2>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group mb-3 text-center">
+    <%= form.label :タイトル %><br />
+    <%= form.text_field :title, class: "form-control d-inline-block w-25" %>
+  </div>
+
+  <div class="form-group mb-3 text-center">
+    <%= form.label :内容 %><br />
+    <%= form.text_area :body, class: "form-control d-inline-block w-25", rows: 5 %>
+  </div>
+
+  <div class="form-group mb-3 text-center">
+    <%= form.label :ジムの名前 %><br />
+    <%= form.text_field :shop_name, class: "form-control d-inline-block w-25" %>
+  </div>
+
+  <div class="form-group mb-3 text-center">
+    <%= form.label :ジムの住所 %><br />
+    <%= form.text_field :shop_address, class: "form-control d-inline-block w-25" %>
+  </div>
+
+  <div class="text-center">
+    <%= form.submit "投稿", class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<header>
+  <div class="container-fluid", style="background-color: #deb887; margin-bottom: 50px; padding: 20px;">
+    <nav class="navbar navbar-expand-md navbar-light">
+      <div style="position: absolute; top: 0; right: 0; display: flex;">
+        <li class="nav-item">
+         <%= link_to "About", about_path,class: 'btn btn-outline-secondary btn-sm mx-3' %>
+        </li>
+        <li class="nav-item">
+         <%= link_to "商品一覧", post_path,class: 'btn btn-outline-secondary btn-sm mx-3' %>
+        </li>
+        <li class="nav-item">
+         <%= link_to "新規登録", new_customer_registration_path,class: 'btn btn-outline-secondary btn-sm mx-3' %>
+        </li>
+         <li class="nav-item"><%= link_to "ログイン", new_customer_session_path,class: 'btn btn-outline-secondary btn-sm mx-3' %>
+        </li>
+      </div>
+    </nav>
+  </div>
+</header>

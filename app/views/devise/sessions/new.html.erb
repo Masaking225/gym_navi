@@ -1,0 +1,32 @@
+<h2 class="text-center my-4">ログイン</h2>
+
+<%= form_with model: @user, url: user_session_path do |f| %>
+  <div class="mb-3 text-center">
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email, class: "form-control d-inline-block w-25", autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="mb-3 text-center">
+    <%= f.label :パスワード %><br />
+    <%= f.password_field :password, class: "form-control d-inline-block w-25", autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="form-check mb-3 text-center">
+      <%= f.check_box :remember_me, class: "form-check-input" %>
+      <%= f.label :記憶する, class: "form-check-label" %>
+    </div>
+  <% end %>
+
+  <div class="text-center">
+    <%= f.submit "ログイン", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<div class="text-center mt-3">
+  <%= render "devise/shared/links" %>
+</div>
+
+
+
+

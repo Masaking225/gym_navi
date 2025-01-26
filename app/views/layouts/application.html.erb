@@ -1,16 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>GymNavi</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+</head>
+<body>
+    <header>
+        <%= link_to root_path, class: "header-title navbar-brand" do %>
+            <%= image_tag("icon.jpg", class: "logo") %>
+        <% end %>
+        <ul>
+            <% if user_signed_in? %>
+                <li>
+                    <%= link_to '投稿フォーム', new_post_path, class: 'btn btn-secondary btn-sm mx-3' %>
+                </li>
+                <li>
+                    <%= link_to '投稿一覧', posts_path, class: 'btn btn-secondary btn-sm mx-3' %>
+                </li>
+                <li>
+                    <%= link_to 'マイページ', user_path(current_user.id), class: 'btn btn-secondary btn-sm mx-3' %>
+                </li>
+                <li>
+                    <%= link_to 'ログアウト', destroy_user_session_path, class: 'btn btn-secondary btn-sm mx-3', method: :delete %>
+                </li>
+            <% else %>
+                <li>
+                    <%= link_to 'どんなサイト？', about_path, class: 'btn btn-secondary btn-sm mx-3' %>
+                </li>
+            <% end %>
+        </ul>
+    </header>
+    <main>
+        <% flash.each do |message_type, message| %>
+            <div class="flash-message <%= message_type %>"><%= message %></div>
+        <% end %>
+        <%= yield %>
+    </main>
+    <footer>
+        <div class='container'>
+            <div class='row'>
+                <div class='col text-center'>
+                    <p class="footer-text">ここは考え中</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>
+
