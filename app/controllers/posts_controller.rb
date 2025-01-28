@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    render :edit
   end
   
   def index
