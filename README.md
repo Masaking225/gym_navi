@@ -14,9 +14,9 @@
 ・引越しや会社等で異動をした際にどこにトレーニングジムがあるかわからない人<br>
 ​
 ### 主な利用シーン
-・ジムを探すとき
-・入会する際に、他のジムと迷った時
-・ジム側の人が、知名度を上げたい場合
+・ジムを探すとき<br>
+・入会する際に、他のジムと迷った時<br>
+・ジム側の人が、知名度を上げたい場合<br>
 ​
 ## 設計書
 https://docs.google.com/spreadsheets/d/1Fb4PXNMIsr7jL-ZwHf9OdTOKwvObDw0Zv3wOd_yry9k/edit?usp=sharing
