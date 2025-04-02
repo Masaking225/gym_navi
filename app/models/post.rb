@@ -6,5 +6,10 @@ class Post < ApplicationRecord
   validates :shop_name, presence: true
   validates :shop_address, presence: true
 
+  has_many :favorites, dependent: :destroy
+ def favorited_by?(user)
+   favorites.exists?(user_id: user.id)
+ end
+
 
 end

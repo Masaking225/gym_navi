@@ -1,34 +1,53 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <%= render 'posts/posts',{user: @user, post: @post} %>
-      <div class="col-md-8 offset-md-1">
-        <h2>投稿一覧</h2>
-        <table class="table table-hover table-inverse">
-          <thead>
+    <!-- Sidebar or user info section (if needed) -->
+    <%= render 'posts/posts', {user: @user, post: @post} %>
+    
+    <div class="col-md-8 offset-md-1">
+      <h2 class="mb-4">投稿一覧</h2>
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th></th>
+            <th>タイトル</th>
+            <th>内容</th>
+            <th>ジムの名前</th>
+            <th>ジムの住所</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @posts.each do |post| %>
             <tr>
-              <th></th>
-              <th>タイトル</th>
-              <th>内容</th>
-              <th>ジムの名前</th>
-              <th>ジムの住所</th>
-              <th colspan="3"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @posts.each do |post| %>
-            <tr>
-            <td><%= link_to user_path(post.user.id) do %>
-              <%= image_tag post.user.get_profile_image(100,100) %>
-              <% end %></td>
-              <td><%= link_to post_path(post.id) do %><%= post.title %>
-              <% end %></td>
+              <!-- User Image -->
+              <td>
+                <%= link_to user_path(post.user.id) do %>
+                  <%= image_tag post.user.get_profile_image(100, 100), class: "rounded-circle" %>
+                <% end %>
+              </td>
+
+              <!-- Post Title -->
+              <td>
+                <%= link_to post_path(post.id) do %>
+                  <%= post.title %>
+                <% end %>
+              </td>
+
+              <!-- Post Body -->
               <td><%= post.body %></td>
+
+              <!-- Gym Name and Address -->
               <td><%= post.shop_name %></td>
               <td><%= post.shop_address %></td>
+
+              <!-- Favorite Button -->
+              <td>
+                <%= render "favorites/btn", post: post %>
+              </td>
             </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

@@ -31,6 +31,7 @@
             <td><%= @post.body %></td>
             <td><%= @post.shop_name %></td>
             <td><%= @post.shop_address %></td>
+
             <% if @post.user == current_user %>
               <td class="d-flex">
                 <%= link_to edit_post_path(@post), class: 'btn btn-primary mr-2' do %>
